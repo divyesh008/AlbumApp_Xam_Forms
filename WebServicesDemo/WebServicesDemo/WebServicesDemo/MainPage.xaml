@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WebServicesDemo"
+             x:Class="WebServicesDemo.MainPage"
+             xmlns:ViewModels="clr-namespace:WebServicesDemo.ViewModel;assembly=WebServicesDemo"
+             Title="Natrix Software Pvt. Ltd" 
+             BackgroundColor="Transparent">
+
+    <ContentPage.BindingContext>
+        <ViewModels:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ListView 
+            x:Name="UsersListView"
+            ItemsSource="{Binding UsersList}" 
+            HasUnevenRows="True"
+            ItemSelected="ListView_ItemSelected" SeparatorVisibility="None" Margin="5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                            <Frame HasShadow="True" BackgroundColor="RoyalBlue" 
+                                   HorizontalOptions="FillAndExpand" Padding="0" 
+                                   IsClippedToBounds="True" Margin="4,8">
+                            <StackLayout Orientation="Horizontal">
+                                <BoxView Color="#ffffff" WidthRequest="5"/>
+                                <Grid Padding="10,5" 
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="AUTO"/>
+                                        <RowDefinition Height="AUTO"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="AUTO"/>
+                                        <ColumnDefinition Width="AUTO"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="avatar.png" Grid.Column="0" Grid.RowSpan="3" HeightRequest="60" Aspect="AspectFill"/>
+                                    <Label Text="{Binding name}" Grid.Row="1" Grid.Column="1" FontSize="Small" VerticalOptions="Center" TextColor="White"/>
+                                    <Label Text="{Binding company.name}" Grid.Row="2" Grid.Column="1" FontSize="Micro" VerticalOptions="Center" TextColor="White"/>
+                                    
+                                    <Image Source="team.png" Grid.Row="2" Grid.Column="2" WidthRequest="20" HeightRequest="22"
+                                       HorizontalOptions="End" VerticalOptions="End" Aspect="AspectFill"/>
+                                    
+                                    <Image Source="{Binding Icon}" Grid.Row="1" Grid.Column="2" HorizontalOptions="End" 
+                                           VerticalOptions="End" HeightRequest="20" WidthRequest="20" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                      
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
+

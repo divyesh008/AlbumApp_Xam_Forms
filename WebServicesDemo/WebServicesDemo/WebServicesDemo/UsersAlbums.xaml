@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WebServicesDemo"
+             x:Class="WebServicesDemo.UsersAlbums"
+             xmlns:ViewModel="clr-namespace:WebServicesDemo.ViewModel;assembly:WebServicesDemo"
+             Title="Albums List">
+
+    <ContentPage.BindingContext>
+        <ViewModel:AlbumViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <ListView x:Name="UsersAlbumsList"
+                  ItemsSource="{Binding AlbumList}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding title}" FontSize="Medium" VerticalOptions="Center"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="WebServicesDemo.UserDetailsPage"
+             Title="{Binding Items.username}"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="galleryicon.png" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="AUTO"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Header Background-->
+        <Image Source="header_background.png" Aspect="AspectFill" Grid.Row="0" HeightRequest="100"/>
+
+        <!--user information-->
+        <StackLayout Grid.Row="1" Padding="0,50,0,0">
+            <Label Text="{Binding Items.name}" Style="{StaticResource ProfileNameLable}"></Label>
+            <Label Text="{Binding Items.email}" Style="{StaticResource ProfileTagLabel}"></Label>
+        </StackLayout>
+
+        <!--description-->
+        <Grid Grid.Row="2" ColumnSpacing="0" Margin="0,30" RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0">
+                <Label Text="{Binding Items.address.geo.lat}" Style="{StaticResource StatsNumberLabel}"></Label>
+                <Label Text="Latitude" Style="{StaticResource StatsCaptionLabel}" ></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="1">
+                <Label Text="{Binding Items.address.geo.lng}" Style="{StaticResource StatsNumberLabel}"></Label>
+                <Label Text="Longitude"  Style="{StaticResource StatsCaptionLabel}"></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="2">
+                <Label Text="{Binding Items.website}" Style="{StaticResource StatsNumberLabel}"></Label>
+                <Label Text="Website"  Style="{StaticResource StatsCaptionLabel}"></Label>
+            </StackLayout>
+        </Grid>
+
+        <!--Google Map-->
+        <StackLayout Grid.Row="3" Spacing="0" Padding="0">
+            <maps:Map 
+                x:Name="LocationMap"
+                HeightRequest="200"
+                IsShowingUser="True"
+                MapType="Street"
+                HasScrollEnabled="True"
+                HasZoomEnabled="True"
+                IsEnabled="True"
+                IsVisible="True">
+            </maps:Map>
+        </StackLayout>
+
+        <!--profile picture-->
+        <Image Source="profile.png" HorizontalOptions="Center" VerticalOptions="End" 
+               WidthRequest="100" HeightRequest="100" TranslationY="50"/>
+
+    </Grid>
+
+</ContentPage>

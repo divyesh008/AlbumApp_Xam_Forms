@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WebServicesDemo.UserInformation">
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="AUTO"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--header background-->
+        <Image Source="headerBack.png" Aspect="AspectFill"></Image>
+        
+        <!--description-->
+        <StackLayout Grid.Row="1" Padding="0,50,0,0">
+            <Label Text="Divyesh" HorizontalTextAlignment="Center" TextColor="Black" FontFamily="sans-serif"></Label>
+            <Label Text="divyesh.bhatt23@gmail.com" HorizontalTextAlignment="Center" FontFamily="sans-serif"></Label>
+        </StackLayout>
+
+        <!--States-->
+        <Grid Grid.Row="2" ColumnSpacing="0" Margin="0,30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Column="0">
+                <Label Text="33" FontSize="20" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Likes" HorizontalTextAlignment="Center" ></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="1">
+                <Label Text="55" FontSize="20" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Following"  HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="2">
+                <Label Text="65" FontSize="20" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Followers" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+        </Grid>
+        
+        <!--Map-->
+        <Label Grid.Row="3" Text="Auto:– automatically sizes to fit content in the row or column. Specified as GridUnitType.Auto in C# or as Auto in XAML." Margin="20,0"></Label>
+
+        <!--Follow Button-->
+        <!--<Button Text="Follow" Grid.Row="4" Margin="20" BackgroundColor="LightBlue" HorizontalOptions="Center"></Button>-->
+
+        <!--profile image-->
+        <Image Source="profile.png" HorizontalOptions="Center" VerticalOptions="End" 
+               WidthRequest="100" HeightRequest="100" TranslationY="50"/>
+    </Grid>
+    
+</ContentPage>
